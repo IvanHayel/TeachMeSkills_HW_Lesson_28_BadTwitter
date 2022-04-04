@@ -6,11 +6,11 @@
 
 ## Table of contents
 
-### 1. [Task]()
+### 1. [Task](https://github.com/IvanHayel/TeachMeSkills_HW_Lesson_28_Sweater#task)
 
-### 2. [Database structure]()
+### 2. [Database structure](https://github.com/IvanHayel/TeachMeSkills_HW_Lesson_28_Sweater#database-structure)
 
-### 3. [Current view]()
+### 3. [Current view](https://github.com/IvanHayel/TeachMeSkills_HW_Lesson_28_Sweater#current-view)
 
 --- 
 
@@ -46,16 +46,20 @@
 
 ![admin-user-home](screens/admin-user-home.png)
 
-#### Tweet page
+#### New Tweet page
 
-![tweet-page](screens/tweet-page.png)
+![tweet-page](screens/new-tweet-page.png)
 
 #### My Tweets page
 
-![my-tweets](screens/my-tweets.png)
+![my-tweets](screens/my-tweets-page.png)
 
 #### Post edit page
 
-![post-edit](screens/post-edit.png)
+![post-edit](screens/post-edit-page.png)
+
+#### Comments and likes to tweet
+
+![comment-and-like](screens/comment-like.png)
 
 ![in-progress](screens/in-progress.png)
