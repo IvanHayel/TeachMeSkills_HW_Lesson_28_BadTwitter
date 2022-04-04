@@ -18,7 +18,7 @@
                 <%= currentUserFullName %>, glad to see you!
             </c:when>
             <c:otherwise>
-                Welcome to Bad Twitter!
+                Welcome to Sweater!
             </c:otherwise>
         </c:choose>
     </p>
