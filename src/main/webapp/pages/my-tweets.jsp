@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bad Twitter</title>
+    <title>My Tweets</title>
     <jsp:include page="common/_head.jsp"/>
 </head>
 <body>
@@ -27,7 +27,7 @@
             <td class="text-center">${post.owner}</td>
             <td>${post.content}</td>
             <td class="text-center">
-                <a href="/comments?post-id=${post.id}" class="link-success">Comments</a>
+                <a href="my-tweets/comments?post-id=${post.id}" class="link-success">Comments</a>
             </td>
             <td class="text-center">
                 <div class="dropdown">
@@ -47,11 +47,11 @@
                 </div>
             </td>
             <td class="d-flex justify-content-center">
-                <form action="/my-tweets/edit" method="get" class="mx-auto">
+                <form action="my-tweets/edit" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-warning">Edit</button>
                 </form>
-                <form action="/my-tweets/delete" method="get" class="mx-auto">
+                <form action="my-tweets/delete" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>

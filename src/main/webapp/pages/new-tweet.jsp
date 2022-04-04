@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bad Twitter</title>
+    <title>New Tweet</title>
     <jsp:include page="common/_head.jsp"/>
 </head>
 <body>

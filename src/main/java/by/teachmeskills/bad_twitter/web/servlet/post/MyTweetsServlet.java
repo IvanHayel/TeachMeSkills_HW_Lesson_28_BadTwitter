@@ -1,4 +1,4 @@
-package by.teachmeskills.bad_twitter.web.servlet;
+package by.teachmeskills.bad_twitter.web.servlet.post;
 
 import by.teachmeskills.bad_twitter.entity.content.Post;
 import by.teachmeskills.bad_twitter.entity.user.User;

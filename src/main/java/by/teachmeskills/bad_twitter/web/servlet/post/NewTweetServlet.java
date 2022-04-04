@@ -1,4 +1,4 @@
-package by.teachmeskills.bad_twitter.web.servlet;
+package by.teachmeskills.bad_twitter.web.servlet.post;
 
 import by.teachmeskills.bad_twitter.entity.content.Post;
 import by.teachmeskills.bad_twitter.entity.user.ReadOnlyUser;
@@ -15,11 +15,11 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 
-@WebServlet(name = "TweetServlet", value = "/tweet")
-public class TweetServlet extends HttpServlet {
+@WebServlet(name = "NewTweetServlet", value = "/new-tweet")
+public class NewTweetServlet extends HttpServlet {
     private static final PostService postService = PostService.getInstance();
 
-    private static final String TWEET_PAGE_PATH = "/pages/tweet.jsp";
+    private static final String TWEET_PAGE_PATH = "/pages/new-tweet.jsp";
     private static final String MY_TWEETS_PATH = "/my-tweets";
     private static final String USER_ATTRIBUTE = "user";
     private static final String POST_CONTENT_PARAMETER = "post-content";

@@ -1,4 +1,4 @@
-package by.teachmeskills.bad_twitter.web.servlet;
+package by.teachmeskills.bad_twitter.web.servlet.authorization;
 
 import by.teachmeskills.bad_twitter.entity.user.User;
 import by.teachmeskills.bad_twitter.service.UserService;

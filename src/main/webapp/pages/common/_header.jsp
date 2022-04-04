@@ -2,7 +2,7 @@
 <header class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <div class="container-fluid">
         <a href="/" class="navbar-brand">
-            <img src="../../images/bt-logo.png" alt="Bad Twitter" height="70vh" width="auto"/>
+            <img src="../../images/sweater-logo.png" alt="Sweater" height="70vh" width="auto"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -26,7 +26,7 @@
                 </c:if>
                 <c:if test="${sessionScope.user != null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/tweet">Tweet</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/new-tweet">Tweet</a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.user != null}">

@@ -1,4 +1,4 @@
-package by.teachmeskills.bad_twitter.web.servlet;
+package by.teachmeskills.bad_twitter.web.servlet.authorization;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

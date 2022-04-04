@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bad Twitter</title>
+    <title>Sweater</title>
     <jsp:include page="common/_head.jsp"/>
 </head>
 <body>
