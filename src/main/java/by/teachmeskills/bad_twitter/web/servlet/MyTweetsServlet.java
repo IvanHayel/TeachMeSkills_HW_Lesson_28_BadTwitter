@@ -28,9 +28,24 @@ public class MyTweetsServlet extends HttpServlet {
     private static final String POST_ATTRIBUTE = "post";
     private static final String USER_POSTS_ATTRIBUTE = "userPosts";
     private static final String POST_ID_PARAMETER = "post-id";
+    private static final String POST_CONTENT_PARAMETER = "post-content";
 
     private transient HttpSession session;
     private transient User currentUser;
+
+    @Override
+    @SneakyThrows(IOException.class)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        session = req.getSession();
+        currentUser = (User) session.getAttribute(USER_ATTRIBUTE);
+        @NonNull String content = req.getParameter(POST_CONTENT_PARAMETER);
+        @NonNull String unparsedId = req.getParameter(POST_ID_PARAMETER);
+        int id = Integer.parseInt(unparsedId);
+        Post post = postService.findPost(id);
+        post.setContent(content);
+        postService.updatePost(post);
+        resp.sendRedirect(MY_TWEETS_PATH);
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
