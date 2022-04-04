@@ -24,6 +24,7 @@ public class PostService extends EntityService {
     private static final String FIND_ALL_POST_COMMENTS = "find-all-post-comments";
     private static final String FIND_POST_BY_ID = "find-post-by-id";
     private static final String SAVE_POST = "save-post";
+    private static final String SAVE_COMMENT = "save-comment";
     private static final String UPDATE_POST = "update-post";
     private static final String DELETE_POST = "delete-post";
     private static final String CLEAR_POST_COMMENTS = "clear-post-comments";
@@ -137,6 +138,22 @@ public class PostService extends EntityService {
         return updateState != SQL_STATEMENT_UPDATE_NOTHING;
     }
 
+    public boolean saveComment(@NonNull Post post, @NonNull Comment comment) {
+        int updateState = SQL_STATEMENT_UPDATE_NOTHING;
+        String query = SCRIPT_MANAGER.getQuery(SAVE_COMMENT);
+        try {
+            @Cleanup PreparedStatement preparedStatement = DRIVER_MANAGER.prepareStatement(query);
+            preparedStatement.setInt(FIRST_PARAMETER, comment.getId());
+            preparedStatement.setInt(SECOND_PARAMETER, post.getId());
+            preparedStatement.setInt(THIRD_PARAMETER, comment.getOwner().getId());
+            preparedStatement.setString(FOURTH_PARAMETER, comment.getContent());
+            updateState = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return updateState != SQL_STATEMENT_UPDATE_NOTHING;
+    }
+
     public Post updatePost(@NonNull Post post) {
         int updateState = SQL_STATEMENT_UPDATE_NOTHING;
         String query = SCRIPT_MANAGER.getQuery(UPDATE_POST);
@@ -199,11 +216,16 @@ public class PostService extends EntityService {
         return ++nextPostId;
     }
 
-    public static void main(String[] args) {
-        PostService instance = PostService.getInstance();
-        Post post = instance.findPost(2);
-        System.out.println(post);
-        post.getLikes().add("Chuck Norris");
-        instance.updatePost(post);
+    public int getNextCommentId(@NonNull Post post) {
+        return post.getComments().size() + 1;
+    }
+
+    public void setLike(@NonNull ReadOnlyUser user, @NonNull Post post) {
+        List<String> likes = post.getLikes();
+        String userLike = user.getFullName();
+        boolean likedAlready = likes.stream().anyMatch(like -> like.equals(userLike));
+        if (likedAlready) likes.remove(userLike);
+        else likes.add(userLike);
+        updatePost(post);
     }
 }

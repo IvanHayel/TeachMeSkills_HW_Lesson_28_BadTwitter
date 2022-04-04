@@ -41,7 +41,7 @@ public class MyTweetsServlet extends HttpServlet {
         @NonNull String content = req.getParameter(POST_CONTENT_PARAMETER);
         @NonNull String unparsedId = req.getParameter(POST_ID_PARAMETER);
         int id = Integer.parseInt(unparsedId);
-        Post post = postService.findPost(id);
+        @NonNull Post post = postService.findPost(id);
         post.setContent(content);
         postService.updatePost(post);
         resp.sendRedirect(MY_TWEETS_PATH);
@@ -69,7 +69,7 @@ public class MyTweetsServlet extends HttpServlet {
     private void editUserPost(HttpServletRequest req, HttpServletResponse resp) {
         @NonNull String unparsedPostId = req.getParameter(POST_ID_PARAMETER);
         int postId = Integer.parseInt(unparsedPostId);
-        Post post = postService.findPost(postId);
+        @NonNull Post post = postService.findPost(postId);
         req.setAttribute(POST_ATTRIBUTE, post);
         req.getRequestDispatcher(POST_EDIT_PAGE_PATH).forward(req, resp);
     }

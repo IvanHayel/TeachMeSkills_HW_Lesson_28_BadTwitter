@@ -29,6 +29,7 @@ public abstract class EntityService implements Serializable {
     protected static final String ACCESS_LEVEL = "access_level";
     protected static final String CONTENT = "content";
     protected static final String OWNER_ID = "owner_id";
+    protected static final String POST_ID = "post_id";
     protected static final String LIKES = "likes";
     protected static final String MAX_USER_ID = "max_user_id";
     protected static final String MAX_POST_ID = "max_post_id";

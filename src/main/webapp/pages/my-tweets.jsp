@@ -26,8 +26,11 @@
             <th scope="row" class="text-center">${post.id}</th>
             <td class="text-center">${post.owner}</td>
             <td>${post.content}</td>
-            <td class="text-center">
-                <a href="my-tweets/comments?post-id=${post.id}" class="link-success">Comments</a>
+            <td class="d-flex justify-content-center">
+                <form action="${pageContext.request.contextPath}/tweet" method="get" class="mx-auto">
+                    <input type='hidden' name='post-id' value='${post.id}'/>
+                    <button type="submit" class="btn btn-primary">Comments</button>
+                </form>
             </td>
             <td class="text-center">
                 <div class="dropdown">
@@ -47,11 +50,11 @@
                 </div>
             </td>
             <td class="d-flex justify-content-center">
-                <form action="my-tweets/edit" method="get" class="mx-auto">
+                <form action="${pageContext.request.contextPath}/my-tweets/edit" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-warning">Edit</button>
                 </form>
-                <form action="my-tweets/delete" method="get" class="mx-auto">
+                <form action="${pageContext.request.contextPath}/my-tweets/delete" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
