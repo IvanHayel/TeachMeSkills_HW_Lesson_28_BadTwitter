@@ -1,3 +1,3 @@
-SELECT id, password, name, surname
+SELECT id, password, email, name, surname
 FROM users
 WHERE login LIKE ?

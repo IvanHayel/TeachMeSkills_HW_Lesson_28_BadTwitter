@@ -34,6 +34,11 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/my-tweets">My Tweets</a>
                     </li>
                 </c:if>
+                <c:if test="${sessionScope.user != null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/all-tweets">All Tweets</a>
+                    </li>
+                </c:if>
                 <c:if test="${sessionScope.user != null && sessionScope.accessLevel != null && sessionScope.accessLevel > 0}">
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/admin-panel">Admin panel</a>

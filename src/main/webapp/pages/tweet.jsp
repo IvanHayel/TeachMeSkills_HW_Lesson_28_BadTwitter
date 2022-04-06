@@ -10,17 +10,20 @@
 <jsp:include page="common/_header.jsp"/>
 <div class="container mt-3 position-relative">
     <div class="card">
-        <h3 class="card-title text-center">Tweet ${requestScope.post.id} from ${requestScope.post.owner}</h3>
+        <h3 class="card-title text-center">Tweet ${requestScope.post.id} from ${requestScope.post.author}</h3>
         <div class="card-body">
             ${requestScope.post.content}
         </div>
+        <span class="position-absolute bottom-0 end-0 fs-6 fw-lighter text-muted me-2">
+            ${requestScope.post.timestampFormatted}
+        </span>
         <form method="post">
-            <input type='hidden' name='post-id' value='${post.id}'/>
+            <input type='hidden' name='post-id' value='${requestScope.post.id}'/>
             <input type='hidden' name='like' value='true'/>
-            <button type="submit" class="btn btn-outline-success position-absolute bottom-0 end-0">
+            <button type="submit" class="btn btn-outline-success position-absolute top-0 end-0">
                 Like
                 <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-success bg-secondary me-4">
-                    ${post.likesCount}
+                    ${requestScope.post.likesCount}
                     <span class="visually-hidden">Hey, here a lot of likes!</span>
                 </span>
             </button>
@@ -34,7 +37,7 @@
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse${comment.id}" aria-expanded="true"
                         aria-controls="collapse${comment.id}">
-                    Comment ${comment.id} from ${comment.owner}
+                    Comment ${comment.id} from ${comment.author}. ${comment.timestampFormatted}
                 </button>
             </h2>
             <div id="collapse${comment.id}" class="accordion-collapse collapse" aria-labelledby="heading${comment.id}"

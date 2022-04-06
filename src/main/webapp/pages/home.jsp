@@ -1,5 +1,5 @@
-<%@ page import="by.teachmeskills.bad_twitter.entity.user.User" %>
-<%@ page import="by.teachmeskills.bad_twitter.entity.user.ReadOnlyUser" %>
+<%@ page import="by.teachmeskills.sweater.entity.user.User" %>
+<%@ page import="by.teachmeskills.sweater.entity.user.ReadOnlyUser" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>

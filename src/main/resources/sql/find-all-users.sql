@@ -1,2 +1,2 @@
-SELECT id, login, password, name, surname
+SELECT id, login, password, email, name, surname
 FROM users

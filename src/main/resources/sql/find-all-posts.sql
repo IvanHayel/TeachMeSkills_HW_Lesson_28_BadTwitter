@@ -1,2 +1,2 @@
-SELECT id, owner_id, content, likes
+SELECT id, author_id, content, likes, timestamp
 FROM posts

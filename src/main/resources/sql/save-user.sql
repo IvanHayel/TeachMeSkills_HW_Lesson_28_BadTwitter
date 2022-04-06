@@ -1,3 +1,3 @@
 INSERT INTO users
-(id, login, password, name, surname)
-VALUES (?, ?, ?, ?, ?)
+(id, login, password, email, name, surname)
+VALUES (?, ?, ?, ?, ?, ?)

@@ -19,6 +19,10 @@
         <label for="floatingPassword">Password</label>
     </div>
     <div class="form-floating mt-3">
+        <input type="text" class="form-control" name="email" id="floatingEmail" placeholder="Email" required>
+        <label for="floatingEmail">Email</label>
+    </div>
+    <div class="form-floating mt-3">
         <input type="text" class="form-control" name="name" id="floatingName" placeholder="Name" required>
         <label for="floatingName">Name</label>
     </div>

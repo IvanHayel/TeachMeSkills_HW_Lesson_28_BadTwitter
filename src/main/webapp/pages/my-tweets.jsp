@@ -8,24 +8,27 @@
 </head>
 <body>
 <jsp:include page="common/_header.jsp"/>
-<table class="table table-striped table-bordered align-middle">
+<table class="table table-striped table-bordered align-middle" style="table-layout: fixed">
     <caption></caption>
     <thead>
     <tr>
-        <th scope="col" class="text-center">Post ID</th>
-        <th scope="col" class="text-center">Owner</th>
-        <th scope="col" class="text-center">Content</th>
-        <th scope="col" class="text-center">Comments</th>
-        <th scope="col" class="text-center">Likes</th>
-        <th scope="col" class="text-center">Edit</th>
+        <th scope="col" class="col-1 text-center">Post ID</th>
+        <th scope="col" class="col-2 text-center">Author</th>
+        <th scope="col" class="col-4 text-center">Content</th>
+        <th scope="col" class="col-1 text-center">Comments</th>
+        <th scope="col" class="col-1 text-center">Likes</th>
+        <th scope="col" class="col-2 text-center">Last edit</th>
+        <th scope="col" class="col-2 text-center">Edit</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="post" items="${requestScope.userPosts}">
         <tr>
             <th scope="row" class="text-center">${post.id}</th>
-            <td class="text-center">${post.owner}</td>
-            <td>${post.content}</td>
+            <td class="text-center">${post.author}</td>
+            <td class="text-truncate">
+                    ${post.content}
+            </td>
             <td class="d-flex justify-content-center">
                 <form action="${pageContext.request.contextPath}/tweet" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
@@ -44,17 +47,20 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <c:forEach var="like" items="${post.likes}">
-                            <li>${like}</li>
+                            <li class="ms-2">${like}</li>
                         </c:forEach>
                     </ul>
                 </div>
             </td>
+            <td class="text-center">
+                    ${post.timestampFormatted}
+            </td>
             <td class="d-flex justify-content-center">
-                <form action="${pageContext.request.contextPath}/my-tweets/edit" method="get" class="mx-auto">
+                <form action="${pageContext.request.contextPath}/edit-tweet" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-warning">Edit</button>
                 </form>
-                <form action="${pageContext.request.contextPath}/my-tweets/delete" method="get" class="mx-auto">
+                <form action="${pageContext.request.contextPath}/delete-tweet" method="post" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
