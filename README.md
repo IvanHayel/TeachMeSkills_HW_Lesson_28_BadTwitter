@@ -34,6 +34,10 @@
 
 ![registration](screens/registration.png)
 
+#### Registration mail to owner
+
+![registration-mail-to-owner](screens/registration-mail-to-owner.png)
+
 #### Authorization
 
 ![authorization](screens/authorization.png)
@@ -58,8 +62,15 @@
 
 ![post-edit](screens/post-edit-page.png)
 
-#### Comments and likes to tweet
+#### All Tweets page
+![all-tweets](screens/all-tweets-page.png)
 
-![comment-and-like](screens/comment-like.png)
+#### Tweet page
+
+![tweet-page](screens/tweet-page.png)
+
+#### Admin panel
+
+![admin-panel](screens/admin-panel.png)
 
 ![in-progress](screens/in-progress.png)
