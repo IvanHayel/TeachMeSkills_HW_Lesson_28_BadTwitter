@@ -16,14 +16,14 @@ public class Post extends Content {
     private List<Comment> comments;
     private List<String> likes;
 
-    public Post(@NonNull int id, @NonNull ReadOnlyUser owner, @NonNull String content,
+    public Post(int id, @NonNull ReadOnlyUser owner, @NonNull String content,
                 @NonNull LocalDateTime timestamp, @NonNull List<Comment> comments, @NonNull List<String> likes) {
         super(id, owner, content, timestamp);
         this.comments = comments;
         this.likes = likes;
     }
 
-    public Post(@NonNull int id, @NonNull ReadOnlyUser owner,
+    public Post(int id, @NonNull ReadOnlyUser owner,
                 @NonNull String content, @NonNull LocalDateTime timestamp) {
         this(id, owner, content, timestamp, new ArrayList<>(), new ArrayList<>());
     }

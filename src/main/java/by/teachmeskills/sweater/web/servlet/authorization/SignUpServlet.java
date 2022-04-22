@@ -54,7 +54,7 @@ public class SignUpServlet extends HttpServlet {
                 emailSender.sendTextEmail(OWNER_EMAIL, String.format("%d New user %s registered", id, login),
                         userToRegister.toString());
                 resp.sendRedirect(PATH_SIGN_IN);
-            } else doGet(req, resp);
-        } else doGet(req, resp);
+            } else resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } else resp.sendRedirect(PATH_SIGN_UP);
     }
 }

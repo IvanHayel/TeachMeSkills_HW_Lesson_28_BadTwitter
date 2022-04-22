@@ -3,7 +3,7 @@ package by.teachmeskills.sweater.storage.mysql;
 import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.SneakyThrows;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Properties;
 
-@Log
+@Slf4j
 public class MySqlDriverManager implements AutoCloseable {
     private static final String DATABASE_PROPERTY_FILE_NAME = "database.properties";
     private static final String DATABASE_URL_PROPERTY = "database.connection.URL";
@@ -52,7 +52,7 @@ public class MySqlDriverManager implements AutoCloseable {
     @SneakyThrows(SQLException.class)
     private static void registerDriver() {
         DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-        log.info("JDBC MySQL Driver successfully registered.");
+        log.info("Driver registered.");
     }
 
     private Connection connection;
@@ -66,7 +66,8 @@ public class MySqlDriverManager implements AutoCloseable {
         Properties databasePropertiesWithoutUrl = (Properties) MySqlDriverManager.databaseProperties.clone();
         String connectionUrl = (String) databasePropertiesWithoutUrl.remove(DATABASE_URL_PROPERTY);
         Connection establishedConnection = DriverManager.getConnection(connectionUrl, databasePropertiesWithoutUrl);
-        log.info(String.format("Connected to %s", establishedConnection.getMetaData().getURL()));
+        DatabaseMetaData databaseMetaData = establishedConnection.getMetaData();
+        log.info(String.format("Connected to %s.", databaseMetaData.getURL()));
         return establishedConnection;
     }
 

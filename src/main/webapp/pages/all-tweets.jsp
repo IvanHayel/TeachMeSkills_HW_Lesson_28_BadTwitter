@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%@ page import="by.teachmeskills.sweater.constant.SweaterWebConstants" %>
+<c:set var="allPosts" value="${requestScope.allPosts}"/>
+<c:url var="tweetUrl" value="${SweaterWebConstants.PATH_TWEET}"/>
 <html lang="en">
 <head>
     <title>All Tweets</title>
@@ -21,15 +23,13 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="post" items="${requestScope.allPosts}">
+    <c:forEach var="post" items="${allPosts}">
         <tr>
             <th scope="row" class="text-center">${post.id}</th>
             <td class="text-center">${post.author}</td>
-            <td class="text-truncate">
-                    ${post.content}
-            </td>
+            <td class="text-truncate">${post.content}</td>
             <td class="d-flex justify-content-center">
-                <form action="${pageContext.request.contextPath}/tweet" method="get" class="mx-auto">
+                <form action="${tweetUrl}" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-primary">Comments</button>
                 </form>
@@ -51,9 +51,7 @@
                     </ul>
                 </div>
             </td>
-            <td class="text-center">
-                    ${post.timestampFormatted}
-            </td>
+            <td class="text-center">${post.timestampFormatted}</td>
         </tr>
     </c:forEach>
     </tbody>

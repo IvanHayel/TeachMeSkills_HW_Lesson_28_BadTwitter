@@ -6,7 +6,7 @@ public class SweaterWebConstants {
     public static final String PAGE_PATH_SIGN_UP = "/pages/sign-up.jsp";
     public static final String PAGE_PATH_ALL_TWEETS = "/pages/all-tweets.jsp";
     public static final String PAGE_PATH_MY_TWEETS = "/pages/my-tweets.jsp";
-    public static final String PAGE_PATH_POST_EDIT = "/pages/tweet-edit.jsp";
+    public static final String PAGE_PATH_TWEET_EDIT = "/pages/tweet-edit.jsp";
     public static final String PAGE_PATH_NEW_TWEET = "/pages/new-tweet.jsp";
     public static final String PAGE_PATH_TWEET = "/pages/tweet.jsp";
     public static final String PAGE_PATH_ADMIN_PANEL = "/pages/admin-panel.jsp";
@@ -14,13 +14,15 @@ public class SweaterWebConstants {
     public static final String PATH_HOME = "/";
     public static final String PATH_SIGN_IN = "/sign-in";
     public static final String PATH_SIGN_UP = "/sign-up";
+    public static final String PATH_TWEET = "/tweet";
     public static final String PATH_NEW_TWEET = "/new-tweet";
     public static final String PATH_ALL_TWEETS = "/all-tweets";
     public static final String PATH_MY_TWEETS = "/my-tweets";
-    public static final String PATH_DELETE_POST = "/delete-tweet";
+    public static final String PATH_DELETE_TWEET = "/delete-tweet";
     public static final String PATH_DELETE_USER = "/delete-user";
-    public static final String PATH_EDIT_POST = "/edit-tweet";
+    public static final String PATH_EDIT_TWEET = "/edit-tweet";
     public static final String PATH_ADMIN_PANEL = "/admin-panel";
+    public static final String PATH_LOGOUT = "/logout";
 
     public static final String SESSION_ATTRIBUTE_USER = "user";
     public static final String SESSION_ATTRIBUTE_ACCESS_LEVEL = "accessLevel";

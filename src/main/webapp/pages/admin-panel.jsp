@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="by.teachmeskills.sweater.constant.SweaterWebConstants" %>
+<c:set var="allUsers" value="${requestScope.allUsers}"/>
+<c:url var="deleteUserUrl" value="${SweaterWebConstants.PATH_DELETE_USER}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="user" items="${requestScope.allUsers}">
+    <c:forEach var="user" items="${allUsers}">
         <tr>
             <th scope="row" class="text-center">${user.id}</th>
             <td class="text-center">${user.login}</td>
@@ -43,7 +46,7 @@
                 </div>
             </td>
             <td class="d-flex justify-content-center">
-                <form action="${pageContext.request.contextPath}/delete-user" method="post" class="mx-auto">
+                <form action="${deleteUserUrl}" method="post" class="mx-auto">
                     <input type='hidden' name='user-id' value='${user.id}'/>
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>

@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 import static by.teachmeskills.sweater.constant.SweaterWebConstants.*;
 
-@WebServlet(name = "TweetEditServlet", value = PATH_EDIT_POST)
+@WebServlet(name = "TweetEditServlet", value = PATH_EDIT_TWEET)
 public class TweetEditServlet extends HttpServlet {
     private static final PostService POST_SERVICE = MySqlPostService.getInstance();
 
@@ -40,6 +40,6 @@ public class TweetEditServlet extends HttpServlet {
         int postId = Integer.parseInt(unparsedPostId);
         @NonNull Post post = POST_SERVICE.findPost(postId);
         req.setAttribute(SESSION_ATTRIBUTE_POST, post);
-        req.getRequestDispatcher(PAGE_PATH_POST_EDIT).forward(req, resp);
+        req.getRequestDispatcher(PAGE_PATH_TWEET_EDIT).forward(req, resp);
     }
 }

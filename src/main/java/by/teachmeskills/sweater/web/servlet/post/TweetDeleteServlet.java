@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static by.teachmeskills.sweater.constant.SweaterWebConstants.*;
 
-@WebServlet(name = "TweetDeleteServlet", value = PATH_DELETE_POST)
+@WebServlet(name = "TweetDeleteServlet", value = PATH_DELETE_TWEET)
 public class TweetDeleteServlet extends HttpServlet {
     private static final PostService POST_SERVICE = MySqlPostService.getInstance();
 

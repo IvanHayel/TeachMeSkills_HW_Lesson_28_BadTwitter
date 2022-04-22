@@ -9,12 +9,12 @@ public enum Mailers implements Mailer {
     private final String PASSWORD;
     private final String MAIL_ADDRESS;
 
-    Mailers(String HOST, String PORT, String USERNAME, String PASSWORD, String MAIL_ADDRESS) {
-        this.HOST = HOST;
-        this.PORT = PORT;
-        this.USERNAME = USERNAME;
-        this.PASSWORD = PASSWORD;
-        this.MAIL_ADDRESS = MAIL_ADDRESS;
+    Mailers(String host, String port, String username, String password, String mailAddress) {
+        HOST = host;
+        PORT = port;
+        USERNAME = username;
+        PASSWORD = password;
+        MAIL_ADDRESS = mailAddress;
     }
 
     @Override

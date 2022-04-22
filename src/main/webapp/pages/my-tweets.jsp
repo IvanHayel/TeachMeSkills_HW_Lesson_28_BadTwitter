@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="by.teachmeskills.sweater.constant.SweaterWebConstants" %>
+<c:set var="userPosts" value="${requestScope.userPosts}"/>
+<c:url var="tweetUrl" value="${SweaterWebConstants.PATH_TWEET}"/>
+<c:url var="editTweetUrl" value="${SweaterWebConstants.PATH_EDIT_TWEET}"/>
+<c:url var="deleteTweetUrl" value="${SweaterWebConstants.PATH_DELETE_TWEET}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +27,13 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="post" items="${requestScope.userPosts}">
+    <c:forEach var="post" items="${userPosts}">
         <tr>
             <th scope="row" class="text-center">${post.id}</th>
             <td class="text-center">${post.author}</td>
-            <td class="text-truncate">
-                    ${post.content}
-            </td>
+            <td class="text-truncate">${post.content}</td>
             <td class="d-flex justify-content-center">
-                <form action="${pageContext.request.contextPath}/tweet" method="get" class="mx-auto">
+                <form action="${tweetUrl}" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-primary">Comments</button>
                 </form>
@@ -52,15 +55,13 @@
                     </ul>
                 </div>
             </td>
-            <td class="text-center">
-                    ${post.timestampFormatted}
-            </td>
+            <td class="text-center">${post.timestampFormatted}</td>
             <td class="d-flex justify-content-center">
-                <form action="${pageContext.request.contextPath}/edit-tweet" method="get" class="mx-auto">
+                <form action="${editTweetUrl}" method="get" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-warning">Edit</button>
                 </form>
-                <form action="${pageContext.request.contextPath}/delete-tweet" method="post" class="mx-auto">
+                <form action="${deleteTweetUrl}" method="post" class="mx-auto">
                     <input type='hidden' name='post-id' value='${post.id}'/>
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>

@@ -32,6 +32,7 @@ public class SignInServlet extends HttpServlet {
     }
 
     @Override
+    @SneakyThrows(IOException.class)
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         session = req.getSession();
         @NonNull String login = req.getParameter(REQUEST_PARAMETER_LOGIN);
@@ -40,7 +41,7 @@ public class SignInServlet extends HttpServlet {
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute(SESSION_ATTRIBUTE_USER, user);
             session.setAttribute(SESSION_ATTRIBUTE_ACCESS_LEVEL, USER_SERVICE.getMaxUserAccessLevel(user));
-        }
-        doGet(req, resp);
+            resp.sendRedirect(PATH_HOME);
+        } else resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }

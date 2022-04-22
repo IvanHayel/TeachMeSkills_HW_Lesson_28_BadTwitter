@@ -9,15 +9,16 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 
-@WebServlet(name = "LogoutServlet", value = "/logout")
-public class LogoutServlet extends HttpServlet {
-    private static final String HOME_PATH = "/";
+import static by.teachmeskills.sweater.constant.SweaterWebConstants.PATH_HOME;
+import static by.teachmeskills.sweater.constant.SweaterWebConstants.PATH_LOGOUT;
 
+@WebServlet(name = "LogoutServlet", value = PATH_LOGOUT)
+public class LogoutServlet extends HttpServlet {
     @Override
     @SneakyThrows(IOException.class)
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         session.invalidate();
-        resp.sendRedirect(HOME_PATH);
+        resp.sendRedirect(PATH_HOME);
     }
 }

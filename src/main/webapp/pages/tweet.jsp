@@ -1,29 +1,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<c:set var="postId" value="${requestScope.post.id}"/>
+<c:set var="postAuthor" value="${requestScope.post.author}"/>
+<c:set var="postContent" value="${requestScope.post.content}"/>
+<c:set var="postDate" value="${requestScope.post.timestampFormatted}"/>
+<c:set var="postLikesCount" value="${requestScope.post.likesCount}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tweet ${requestScope.post.id}</title>
+    <title>Tweet ${postId}</title>
     <jsp:include page="common/_head.jsp"/>
 </head>
 <body>
 <jsp:include page="common/_header.jsp"/>
 <div class="container mt-3 position-relative">
     <div class="card">
-        <h3 class="card-title text-center">Tweet ${requestScope.post.id} from ${requestScope.post.author}</h3>
+        <h3 class="card-title text-center">Tweet ${postId} from ${postAuthor}</h3>
         <div class="card-body">
-            ${requestScope.post.content}
+            ${postContent}
         </div>
         <span class="position-absolute bottom-0 end-0 fs-6 fw-lighter text-muted me-2">
-            ${requestScope.post.timestampFormatted}
+            ${postDate}
         </span>
         <form method="post">
-            <input type='hidden' name='post-id' value='${requestScope.post.id}'/>
+            <input type='hidden' name='post-id' value='${postId}'/>
             <input type='hidden' name='like' value='true'/>
             <button type="submit" class="btn btn-outline-success position-absolute top-0 end-0">
                 Like
                 <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-success bg-secondary me-4">
-                    ${requestScope.post.likesCount}
+                    ${postLikesCount}
                     <span class="visually-hidden">Hey, here a lot of likes!</span>
                 </span>
             </button>
