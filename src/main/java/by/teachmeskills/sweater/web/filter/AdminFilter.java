@@ -14,6 +14,7 @@ import lombok.SneakyThrows;
 import static by.teachmeskills.sweater.constant.SweaterWebConstants.SESSION_ATTRIBUTE_USER;
 import static by.teachmeskills.sweater.constant.SweaterWebConstants.USER_ACCESS_LEVEL_ADMIN;
 
+// TODO: for flexibility you can use urlPatterns.
 @WebFilter(filterName = "AdminFilter", servletNames = {"AdminPanelServlet", "UserDeleteServlet"})
 public class AdminFilter extends HttpFilter {
     private static final UserService USER_SERVICE = MySqlUserService.getInstance();

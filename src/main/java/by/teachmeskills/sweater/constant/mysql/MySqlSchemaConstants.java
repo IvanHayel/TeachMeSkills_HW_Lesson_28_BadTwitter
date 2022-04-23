@@ -1,3 +1,4 @@
+// TODO: обычно если константы целевые, то и кладут рядом в пакете. Если общие - пакет common.
 package by.teachmeskills.sweater.constant.mysql;
 
 import java.time.format.DateTimeFormatter;

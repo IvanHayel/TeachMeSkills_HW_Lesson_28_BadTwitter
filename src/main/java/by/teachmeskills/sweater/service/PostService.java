@@ -6,6 +6,7 @@ import by.teachmeskills.sweater.entity.user.ReadOnlyUser;
 
 import java.util.List;
 
+// TODO: lot's of methods can be moved to one main Interface
 public interface PostService {
     List<Comment> findAllPostComments(int postId);
 

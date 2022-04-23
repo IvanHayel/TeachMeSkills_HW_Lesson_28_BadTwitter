@@ -23,6 +23,7 @@ import static by.teachmeskills.sweater.constant.mysql.MySqlSchemaConstants.*;
 import static by.teachmeskills.sweater.constant.mysql.MySqlScriptNames.*;
 import static by.teachmeskills.sweater.constant.mysql.MySqlStatementConstants.*;
 
+// TODO: Simplify with Hibernate or JPA :)
 public class MySqlPostService implements PostService {
     private static final UserService USER_SERVICE = MySqlUserService.getInstance();
     private static final MySqlDriverManager DRIVER_MANAGER = MySqlDriverManager.getInstance();

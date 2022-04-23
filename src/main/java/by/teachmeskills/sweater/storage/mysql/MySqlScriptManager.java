@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MySqlScriptManager {
+    // TODO: SQL scripts are also placed in packages.
+    //  A common approach is that the path to the class is also the path to the scripts that it uses.
+    //  Because there are frameworks that can find them by class path and class name.
     private static final String SCRIPTS_FOLDER_NAME = "sql";
     private static final Path MYSQL_SCRIPTS_PATH;
 

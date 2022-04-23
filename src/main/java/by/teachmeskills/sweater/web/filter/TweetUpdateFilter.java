@@ -28,6 +28,7 @@ public class TweetUpdateFilter extends HttpFilter {
         @NonNull String unparsedPostId = req.getParameter(REQUEST_PARAMETER_POST_ID);
         int postId = Integer.parseInt(unparsedPostId);
         Post post = POST_SERVICE.findPost(postId);
+        // TODO: batter to use {} always even if it's one line.
         if (currentUser == null || post == null)
             res.sendError(HttpServletResponse.SC_BAD_REQUEST);
         else if (currentUser.getId() != post.getAuthor().getId())

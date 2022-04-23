@@ -1,6 +1,7 @@
 package by.teachmeskills.sweater.constant;
 
 public class SweaterWebConstants {
+    // TODO: Эндпоинты нет смысла выносить в константы. они определяющие и принадлежат сервлетам.
     public static final String PAGE_PATH_HOME = "/pages/home.jsp";
     public static final String PAGE_PATH_SIGN_IN = "/pages/sign-in.jsp";
     public static final String PAGE_PATH_SIGN_UP = "/pages/sign-up.jsp";
@@ -32,6 +33,7 @@ public class SweaterWebConstants {
     public static final String REQUEST_ATTRIBUTE_USER_POSTS = "userPosts";
     public static final String REQUEST_ATTRIBUTE_ALL_USERS = "allUsers";
 
+    // TODO: web constant should be line in web package
     public static final String REQUEST_PARAMETER_LOGIN = "login";
     public static final String REQUEST_PARAMETER_PASSWORD = "password";
     public static final String REQUEST_PARAMETER_NAME = "name";
